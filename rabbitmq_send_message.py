@@ -4,7 +4,7 @@ import pika
 
 class queue_broker():
     def __init__(self):
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq', heartbeat=0))
         self.channel = connection.channel()
 
     def send_message(self, queue, message):
